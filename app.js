@@ -4,21 +4,36 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const config = require('./config/database')
+const users = require('./routes/users');
+
+// Connection do database
+mongoose.connect(config.database);
+
+mongoose.connection.on('connected', function() {
+    console.log('Connected to database ' + config.database);
+})
+
+mongoose.connection.on('error', function(err) {
+    console.log('Database error: ' + err);
+})
 
 const app = express();
 
-const users = require('./routes/users');
 
 // Port number
 const port = 3000;
 
 // Middlewares
-
 // Cors
 app.use(cors());
 // Body parser
 app.use(bodyParser.json());
 
+// Static folders
+app.use(express.static(path.join(__dirname, "public")));
+
+// Users routing
 app.use('/users', users);
 
 // Index route
