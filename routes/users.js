@@ -60,8 +60,8 @@ router.post('/authenticate', function(req, res, next) {
 });
 
 // Profile
-router.get('/profile', function(req, res, next) {
-    res.send("PROFILE");
+router.get('/profile', passport.authenticate('jwt', {session:false}), function(req, res, next) {
+    res.json({user: req.user});
 });
 
 // Validate
