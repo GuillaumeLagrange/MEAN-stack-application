@@ -5,17 +5,21 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node app"
+    "start": "node app"
   },
   "dependencies": {
-      "express": "*",
-      "mongoose": "*",
-      "bcryptjs": "*",
-      "cors": "*",
-      "jsonwebtoken": "*",
-      "body-parser": "*",
-      "passport": "*",
-      "passport-jwt": "*"
+    "@angular/core": "^4.1.3",
+    "angular2-flash-messages": "^1.0.8",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "rxjs": "^5.4.0",
+    "zone.js": "^0.8.11"
   },
   "author": "",
   "license": "ISC"
